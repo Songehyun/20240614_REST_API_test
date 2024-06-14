@@ -7,7 +7,9 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <h1 id="gofunc">도서관 인기 대출 도서</h1>
+    </div>
     <script>
       // XMLHttpRequest를 사용할거고 변수 xhr에 담아줘
       const xhr = new XMLHttpRequest();
@@ -32,10 +34,14 @@
           const ResultArray = result.getBookLoanBest.body.items.item;
 
           const root = document.getElementById("root");
+          const gofunc = document.getElementById("gofunc");
+          const back = document.getElementById("back");
+          const go = document.getElementById("go");
 
           let count = 0;
 
-          root.innerHTML = `
+          function changehtml() {
+            root.innerHTML = `
             <div>
               <h1 onclick="location.href='./index.html'">도서관 인기 대출 도서</h1>
               </div>
@@ -56,6 +62,28 @@
                 <button id="go">다음</button>
               </div>
             `;
+          }
+
+          function backpage() {
+            if (count <= 0) {
+              console.log("이전페이지 없음");
+            } else if (count > 0) {
+              count = count - 1;
+              changehtml();
+            }
+          }
+
+          function gopage() {
+            if (count === ResultArray.length - 1) {
+              console.log("다음페이지 없음");
+            } else if (count < ResultArray.length - 1) {
+              count = count + 1;
+              changehtml();
+            }
+          }
+          gofunc.addEventListener("click", changehtml);
+          back.addEventListener("click", backpage);
+          go.addEventListener("click", gopage);
         }
       });
     </script>
