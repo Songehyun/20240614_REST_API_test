@@ -33,29 +33,27 @@
 
           const root = document.getElementById("root");
 
+          let count = 0;
+
           root.innerHTML = `
             <div>
               <h1 onclick="location.href='./index.html'">도서관 인기 대출 도서</h1>
               </div>
               <div>
-                <h2>${ResultArray[0].title}</h2>
+                <h2>${ResultArray[count].title}</h2>
               </div>
               <div>
-                <p>저자 : ${ResultArray[0].author}</p>
-                <p>출판사 : ${ResultArray[0].publisher}</p>
-                <p>출판년도 : ${ResultArray[0].publish_year}</p>
+                <p>저자 : ${ResultArray[count].author}</p>
+                <p>출판사 : ${ResultArray[count].publisher}</p>
+                <p>출판년도 : ${ResultArray[count].publish_year}</p>
                 <img
-                  src="${ResultArray[0].image}"
+                  src="${ResultArray[count].image}"
                   alt=""
                 />
               </div>
               <div>
-                <form action="/back" method="post">
-                  <button type="submit">이전</button>
-                </form>
-                <form action="/go" method="post">
-                  <button type="submit">다음</button>
-                </form>
+                <button id="back">이전</button>
+                <button id="go">다음</button>
               </div>
             `;
         }
