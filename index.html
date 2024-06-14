@@ -9,12 +9,16 @@
   <body>
     <div id="root"></div>
     <script>
+      // XMLHttpRequest를 사용할거고 변수 xhr에 담아줘
       const xhr = new XMLHttpRequest();
 
+      // 매서드 설정 GET일경우
       let requestemthod = "GET";
 
+      // OPEN API 사용 키값을 받아서 적음
       const requesturl = `http://apis.data.go.kr/6260000/BookLoanBestService/getBookLoanBest?serviceKey=HV8E%2BTY8D2sM0K0m4ySRar%2F5gcEogz%2FBFEg%2BWr5P0t7m67j5Mg6xuAy1wGLmzhNFVsgSQ%2BwjmzOshIxLiknILw%3D%3D&numOfRows=10&pageNo=1&resultType=xml`;
 
+      // 지정된 매서드로 지정된 url을 열어줘, 동적실행이야
       xhr.open(requestemthod, requesturl, true);
       xhr.send();
     </script>
