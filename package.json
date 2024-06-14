@@ -7,5 +7,9 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "request": "^2.88.2",
+    "xml-js": "^1.6.11"
+  }
 }
