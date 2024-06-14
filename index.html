@@ -21,6 +21,12 @@
       // 지정된 매서드로 지정된 url을 열어줘, 동적실행이야
       xhr.open(requestemthod, requesturl, true);
       xhr.send();
+
+      xhr.addEventListener("load", () => {
+        if (xhr.status === 200) {
+          console.log("200은 성공 코드야");
+        }
+      });
     </script>
   </body>
 </html>
