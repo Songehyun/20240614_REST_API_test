@@ -22,9 +22,13 @@
       xhr.open(requestemthod, requesturl, true);
       xhr.send();
 
+      // 스테이터스 코드가 200일때 성공 콘솔을 띄우고 작업진행
       xhr.addEventListener("load", () => {
         if (xhr.status === 200) {
           console.log("200은 성공 코드야");
+
+          // json파일 형태로 되어있는 api를 읽어 내도록 parse
+          const result = JSON.parse(xhr.responseText);
         }
       });
     </script>
