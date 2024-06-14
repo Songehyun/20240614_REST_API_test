@@ -31,13 +31,17 @@
 
           // json파일 형태로 되어있는 api를 읽어 내도록 parse
           const result = JSON.parse(xhr.responseText);
+          // 필요한 배열 부분만 따로 변수에 저장 사용하기 쉽게
           const ResultArray = result.getBookLoanBest.body.items.item;
 
+          // html에서 건들여야 하는 부분 id 받아오기
           const root = document.getElementById("root");
           const gofunc = document.getElementById("gofunc");
 
+          // 페이지 변환을 위해서 count 선언 후 기본값 0으로 지정
           let count = 0;
 
+          // root의 innerHTML을 수정해서 눈에 보이는 페이지를 바꿔주는 함수
           function changehtml() {
             root.innerHTML = `
             <div>
@@ -60,13 +64,16 @@
                   <button id="go">다음</button>
                   </div>
                   `;
+            // 템플릿을 이용해서 back , go 아이디가 만들어진 이후 변수에 담아주기
             const back = document.getElementById("back");
             const go = document.getElementById("go");
 
+            // 변수에 담긴 내용들에 이벤트 리스너 추가
             back.addEventListener("click", backpage);
             go.addEventListener("click", gopage);
           }
 
+          // 이전 버튼을 눌렀을 때 조건에 맞으면 카운트가 줄어들고 html을 바꿔주는 changehtml이 실행된다.
           function backpage() {
             if (count <= 0) {
               console.log("이전페이지 없음");
@@ -76,6 +83,7 @@
             }
           }
 
+          // 이전 버튼을 눌렀을 때 조건에 맞으면 카운트가 늘어나고 html을 바꿔주는 changehtml이 실행된다.
           function gopage() {
             if (count === ResultArray.length - 1) {
               console.log("다음페이지 없음");
@@ -84,6 +92,7 @@
               changehtml();
             }
           }
+          // 제목을 눌렀을 시 changehtml이 실행된다.
           gofunc.addEventListener("click", changehtml);
         }
       });
