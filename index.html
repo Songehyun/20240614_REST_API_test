@@ -28,8 +28,9 @@
           console.log("200은 성공 코드야");
 
           // json파일 형태로 되어있는 api를 읽어 내도록 parse
-          // const result = JSON.parse(xhr.responseText);
-          console.log(xhr.responseText);
+          const result = JSON.parse(xhr.responseText);
+          const UseResult = result.getBookLoanBest.body.items;
+          console.dir(UseResult.item[0]);
         }
       });
     </script>
