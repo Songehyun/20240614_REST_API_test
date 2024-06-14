@@ -35,8 +35,6 @@
 
           const root = document.getElementById("root");
           const gofunc = document.getElementById("gofunc");
-          const back = document.getElementById("back");
-          const go = document.getElementById("go");
 
           let count = 0;
 
@@ -53,15 +51,20 @@
                 <p>출판사 : ${ResultArray[count].publisher}</p>
                 <p>출판년도 : ${ResultArray[count].publish_year}</p>
                 <img
-                  src="${ResultArray[count].image}"
-                  alt=""
+                src="${ResultArray[count].image}"
+                alt=""
                 />
-              </div>
-              <div>
-                <button id="back">이전</button>
-                <button id="go">다음</button>
-              </div>
-            `;
+                </div>
+                <div>
+                  <button id="back">이전</button>
+                  <button id="go">다음</button>
+                  </div>
+                  `;
+            const back = document.getElementById("back");
+            const go = document.getElementById("go");
+
+            back.addEventListener("click", backpage);
+            go.addEventListener("click", gopage);
           }
 
           function backpage() {
@@ -82,8 +85,6 @@
             }
           }
           gofunc.addEventListener("click", changehtml);
-          back.addEventListener("click", backpage);
-          go.addEventListener("click", gopage);
         }
       });
     </script>
